@@ -18,5 +18,8 @@
     "calculator",
     "college"
   ],
-  "author": "Ganji Phani Chandra"
+  "author": "Ganji Phani Chandra",
+  "dependencies": {
+    "vite": "^5.4.21"
+  }
 }
