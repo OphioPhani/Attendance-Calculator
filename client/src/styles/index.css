@@ -1,0 +1,351 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+body {
+  @apply bg-primary text-white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+* {
+  @apply box-border;
+}
+
+/* Color Palette */
+:root {
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: rgba(13, 17, 23, 0.92);
+  --color-border: #30363d;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8b949e;
+  --color-text-tertiary: #e6edf3;
+  --color-success: #238636;
+  --color-danger: #da3633;
+  --color-info: #1f6feb;
+  --color-success-hover: #2ea043;
+  --color-danger-hover: #f85149;
+  --color-info-hover: #388bfd;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-white;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+/* Label & Secondary Text */
+.text-secondary {
+  @apply text-gray-400;
+  color: var(--color-text-secondary);
+}
+
+/* Glass Card Component */
+@layer components {
+  .glass-card {
+    @apply rounded-xl border backdrop-blur-md p-6 transition-all duration-300;
+    background-color: rgba(30, 40, 60, 0.68);
+    border-color: rgba(100, 120, 160, 0.45);
+    border-width: 1px;
+    padding: 24px;
+    border-radius: 12px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .glass-card:hover {
+    @apply border-opacity-100;
+    border-color: rgba(120, 150, 200, 0.65);
+    background-color: rgba(35, 48, 75, 0.85);
+    backdrop-filter: blur(20px);
+  }
+
+  /* Input Fields */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    @apply w-full rounded-lg border px-4 py-2 text-base transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-border);
+    color: var(--color-text-tertiary);
+  }
+
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder,
+  input[type="password"]::placeholder,
+  textarea::placeholder {
+    color: var(--color-text-secondary);
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  textarea:focus {
+    border-color: var(--color-info);
+    background-color: rgba(31, 111, 235, 0.05);
+  }
+
+  /* Select Dropdown */
+  select {
+    @apply w-full rounded-lg border px-4 py-2 transition-all duration-200 focus:outline-none;
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-border);
+    color: var(--color-text-tertiary);
+  }
+
+  select:focus {
+    border-color: var(--color-info);
+    background-color: rgba(31, 111, 235, 0.05);
+  }
+
+  select option {
+    background-color: #1f2937;
+    color: #ffffff;
+  }
+
+  /* Button Base Styles */
+  .btn-base {
+    @apply relative inline-flex items-center justify-center rounded-lg border-0 font-semibold transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+    padding: 8px 16px;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  /* Success Button (Green) */
+  .btn-success {
+    @apply btn-base;
+    background-color: var(--color-success);
+    color: white;
+    border: 1px solid rgba(35, 134, 54, 0.4);
+  }
+
+  .btn-success:hover:not(:disabled) {
+    background-color: var(--color-success-hover);
+    filter: brightness(1.2);
+    border-color: rgba(46, 160, 67, 0.6);
+  }
+
+  .btn-success:active:not(:disabled) {
+    filter: brightness(0.95);
+  }
+
+  /* Danger Button (Red) */
+  .btn-danger {
+    @apply btn-base;
+    background-color: var(--color-danger);
+    color: white;
+    border: 1px solid rgba(218, 54, 51, 0.4);
+  }
+
+  .btn-danger:hover:not(:disabled) {
+    background-color: var(--color-danger-hover);
+    filter: brightness(1.2);
+    border-color: rgba(248, 81, 73, 0.6);
+  }
+
+  .btn-danger:active:not(:disabled) {
+    filter: brightness(0.95);
+  }
+
+  /* Info Button (Blue) */
+  .btn-info {
+    @apply btn-base;
+    background-color: var(--color-info);
+    color: white;
+    border: 1px solid rgba(31, 111, 235, 0.4);
+  }
+
+  .btn-info:hover:not(:disabled) {
+    background-color: var(--color-info-hover);
+    filter: brightness(1.2);
+    border-color: rgba(56, 139, 253, 0.6);
+  }
+
+  .btn-info:active:not(:disabled) {
+    filter: brightness(0.95);
+  }
+
+  /* Default Button */
+  .btn-default {
+    @apply btn-base;
+    background-color: #21262d;
+    color: var(--color-text-tertiary);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-default:hover:not(:disabled) {
+    background-color: #30363d;
+    border-color: #8b949e;
+  }
+
+  /* Gradient Button (Legacy) - Convert to new system */
+  .gradient-button {
+    @apply btn-base btn-lg btn-default;
+    min-width: 120px;
+  }
+
+  .gradient-button.gradient-button-green {
+    @apply btn-success btn-lg;
+  }
+
+  .gradient-button.gradient-button-red {
+    @apply btn-danger btn-lg;
+  }
+
+  .gradient-button.gradient-button-blue {
+    @apply btn-info btn-lg;
+  }
+
+  /* Stats Display */
+  .stat-label {
+    @apply text-sm font-medium;
+    color: var(--color-text-secondary);
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold;
+    color: var(--color-text-primary);
+  }
+
+  .stat-value.stat-success {
+    color: var(--color-success);
+  }
+
+  .stat-value.stat-danger {
+    color: var(--color-danger);
+  }
+
+  .stat-value.stat-info {
+    color: var(--color-info);
+  }
+
+  /* Gap Utilities */
+  .gap-12 {
+    gap: 12px;
+  }
+}
+
+/* Specific Component Overrides */
+.text-gray-300 {
+  color: var(--color-text-tertiary);
+}
+
+.text-gray-400 {
+  color: var(--color-text-secondary);
+}
+
+.text-cyan-400,
+.text-cyan-300 {
+  color: var(--color-info);
+}
+
+.text-green-300 {
+  color: var(--color-success);
+}
+
+.text-red-300 {
+  color: var(--color-danger);
+}
+
+.bg-white\/10 {
+  background-color: rgba(13, 17, 23, 0.92);
+}
+
+.border-white\/20 {
+  border-color: var(--color-border);
+}
+
+.focus:border-cyan-400 {
+  border-color: var(--color-info);
+}
+
+/* Holographic Card Component */
+.holographic-card {
+  --x: 50%;
+  --y: 50%;
+  --bg-x: 50%;
+  --bg-y: 50%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(70, 100, 160, 0.45) 0%,
+    rgba(80, 120, 180, 0.55) 100%
+  );
+  border: 1px solid rgba(120, 150, 200, 0.5);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.2),
+    inset 0 0 60px rgba(100, 200, 255, 0.08);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.holographic-card:hover {
+  border-color: rgba(140, 170, 220, 0.7);
+  box-shadow:
+    0 20px 60px rgba(0, 100, 200, 0.3),
+    inset 0 0 60px rgba(100, 200, 255, 0.12);
+}
+
+.holographic-card .holo-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(100, 200, 255, 0.4) 0%,
+    rgba(100, 200, 255, 0.2) 30%,
+    transparent 70%
+  );
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.holographic-card:hover .holo-glow {
+  opacity: 1;
+  animation: holo-pulse 2s ease-in-out infinite;
+}
+
+@keyframes holo-pulse {
+  0%, 100% {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+  }
+  50% {
+    width: 250px;
+    height: 250px;
+    opacity: 0.6;
+  }
+}
+
+.holographic-card .holo-content {
+  position: relative;
+  z-index: 10;
+}
+
