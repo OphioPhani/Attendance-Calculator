@@ -13,6 +13,14 @@
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
-  "keywords": ["attendance", "calculator", "college"],
-  "author": "Matrusri Engineering College"
+  "keywords": [
+    "attendance",
+    "calculator",
+    "college"
+  ],
+  "author": "Matrusri Engineering College",
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
 }
