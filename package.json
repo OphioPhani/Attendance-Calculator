@@ -7,7 +7,7 @@
     "dev": "fuser -k 5000/tcp 3000/tcp 3001/tcp || true && concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
     "server": "fuser -k 5000/tcp || true && npm --prefix server run dev",
     "client": "fuser -k 3000/tcp 3001/tcp || true && npm --prefix client run dev",
-    "build": "npm --prefix server run build && npm --prefix client run build",
+    "build": "npm --prefix client run build",
     "install-all": "npm install && npm --prefix server install && npm --prefix client install"
   },
   "devDependencies": {
@@ -18,9 +18,5 @@
     "calculator",
     "college"
   ],
-  "author": "Ganji Phani Chandra",
-  "dependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
-  }
+  "author": "Ganji Phani Chandra"
 }
