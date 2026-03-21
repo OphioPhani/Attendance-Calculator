@@ -1,7 +1,7 @@
 {
   "name": "attendance-calculator",
   "version": "1.0.0",
-  "description": "Smart Attendance Calculator for Matrusri Engineering College",
+  "description": "Smart Attendance Calculator - Production Ready",
   "private": true,
   "scripts": {
     "dev": "fuser -k 5000/tcp 3000/tcp 3001/tcp || true && concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
@@ -18,7 +18,7 @@
     "calculator",
     "college"
   ],
-  "author": "Matrusri Engineering College",
+  "author": "Ganji Phani Chandra",
   "dependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4"

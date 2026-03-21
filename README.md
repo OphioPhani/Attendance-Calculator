@@ -1,6 +1,6 @@
 # Smart Attendance Calculator
 
-A production-ready web application for managing and calculating student attendance at Matrusri Engineering College.
+A production-ready web application for managing and calculating student attendance with enterprise-grade security and modern UI.
 
 ## Tech Stack
 

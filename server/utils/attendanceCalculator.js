@@ -1,4 +1,4 @@
-// Predefined holidays for Telangana/Matrusri Engineering College
+// Predefined holidays for Telangana region
 const TELANGANA_HOLIDAYS = [
   '2024-01-26', // Republic Day
   '2024-03-08', // Maha Shivaratri
