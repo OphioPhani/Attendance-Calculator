@@ -10,6 +10,7 @@ import { useAttendance } from '../hooks/useAttendance.js';
 import { useNavigate } from 'react-router-dom';
 import CrystalShader from '../components/CrystalShader.jsx';
 import TextShimmer from '../components/TextShimmer.jsx';
+import Footer from '../components/Footer.jsx';
 
 const SEMESTERS = ['1-1', '1-2', '2-1', '2-2', '3-1', '3-2', '4-1', '4-2'];
 
@@ -292,17 +293,18 @@ export const Dashboard = () => {
   const prediction = metrics?.prediction;
 
   return (
-    <div className="relative min-h-screen">
-      {/* Crystal Shader Background */}
-      <CrystalShader
-        cellDensity={6.0}
-        animationSpeed={0.15}
-        warpFactor={0.5}
-        mouseInfluence={0.12}
-      />
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-1 relative">
+        {/* Crystal Shader Background */}
+        <CrystalShader
+          cellDensity={6.0}
+          animationSpeed={0.15}
+          warpFactor={0.5}
+          mouseInfluence={0.12}
+        />
 
-      {/* Content Overlay */}
-      <div className="relative z-10">
+        {/* Content Overlay */}
+        <div className="relative z-10">
         {/* Header */}
         <div className="bg-white/10 backdrop-blur-md border-b border-white/20 p-4">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -652,6 +654,8 @@ export const Dashboard = () => {
           </div>
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };
