@@ -293,18 +293,19 @@ export const Dashboard = () => {
   const prediction = metrics?.prediction;
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-1 relative">
-        {/* Crystal Shader Background */}
+    <div className="flex flex-col min-h-screen bg-black">
+      {/* Crystal Shader Background - Absolute positioning */}
+      <div className="absolute inset-0 z-0">
         <CrystalShader
           cellDensity={6.0}
           animationSpeed={0.15}
           warpFactor={0.5}
           mouseInfluence={0.12}
         />
+      </div>
 
-        {/* Content Overlay */}
-        <div className="relative z-10">
+      {/* Main Content - Relative positioning above background */}
+      <div className="flex-1 relative z-10">
         {/* Header */}
         <div className="bg-white/10 backdrop-blur-md border-b border-white/20 p-4">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -654,7 +655,8 @@ export const Dashboard = () => {
           </div>
         </div>
       </div>
-      </div>
+
+      {/* Footer - Above background, below content */}
       <Footer />
     </div>
   );
