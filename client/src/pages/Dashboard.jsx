@@ -10,7 +10,6 @@ import { useAttendance } from '../hooks/useAttendance.js';
 import { useNavigate } from 'react-router-dom';
 import CrystalShader from '../components/CrystalShader.jsx';
 import TextShimmer from '../components/TextShimmer.jsx';
-import Footer from '../components/Footer.jsx';
 
 const SEMESTERS = ['1-1', '1-2', '2-1', '2-2', '3-1', '3-2', '4-1', '4-2'];
 
@@ -654,11 +653,6 @@ export const Dashboard = () => {
             </GlassCard>
           </div>
         </div>
-      </div>
-
-      {/* Footer - Relative positioning with z-index */}
-      <div className="relative z-20 flex-shrink-0">
-        <Footer />
       </div>
     </div>
   );
