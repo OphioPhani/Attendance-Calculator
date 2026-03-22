@@ -656,8 +656,10 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      {/* Footer - Above background, below content */}
-      <Footer />
+      {/* Footer - Relative positioning with z-index */}
+      <div className="relative z-20 flex-shrink-0">
+        <Footer />
+      </div>
     </div>
   );
 };
