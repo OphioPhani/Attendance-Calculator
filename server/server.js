@@ -62,15 +62,21 @@ app.use(express.urlencoded(payloadLimits.urlencoded));
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://attendance-calculator-vert.vercel.app'
+  'https://attendance-calculator-vert.vercel.app',
+  'https://attendance-calculator-503n9ch8d-ophiophanis-projects.vercel.app'
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (
+      !origin ||
+      origin.includes('localhost') ||
+      origin.includes('vercel.app')
+    ) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      // ❌ DO NOT THROW ERROR
+      callback(null, false);
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
