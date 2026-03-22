@@ -59,7 +59,26 @@ app.use(express.json(payloadLimits.json));
 app.use(express.urlencoded(payloadLimits.urlencoded));
 
 // 3. CORS with strict configuration
-app.use(cors(corsConfig));
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://attendance-calculator-vert.vercel.app'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // 4. Request ID generation
 app.use(requestIdMiddleware);
