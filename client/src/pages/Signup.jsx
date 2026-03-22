@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { GlassCard, InputField, Button } from '../components/FormComponents.jsx';
 import useAuth from '../hooks/useAuth.js';
 import { motion } from 'framer-motion';
+import AnimatedShaderHero from '../components/AnimatedShaderHero.jsx';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -71,12 +72,12 @@ export const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+    <AnimatedShaderHero>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="w-full max-w-md"
+        className="w-full max-w-md px-4"
       >
         <motion.div variants={itemVariants} className="text-center mb-8">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
@@ -123,7 +124,7 @@ export const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
                 error={errors.password}
-                placeholder="At least 6 characters"
+                placeholder="At least 12 characters with complexity"
               />
 
               <InputField
@@ -154,7 +155,7 @@ export const Signup = () => {
           </GlassCard>
         </motion.div>
       </motion.div>
-    </div>
+    </AnimatedShaderHero>
   );
 };
 
